@@ -19,8 +19,8 @@ public class Huffman <E extends Comparable<E>> {
 		String allSpeech = "speechdata";
 
 		//Choose directory
-		String directory = "old300";
-		String outFile = directory + ".out";
+		String directory = "speechdata";
+		String outFile = "allSpeeches.out";
 
 
 		/*

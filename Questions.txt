@@ -1,0 +1,40 @@
+Questions
+
+
+1.) How does huffman coding work. Why is it lossless?
+
+Usually every letter is encoded using binary representation of ascii value for a letter (8bits per letter).  Huffman coding uses the frequency of a letter in
+the file to compress and a binary search tree to create the binary representation of a letter.  The letters are the leaves of the tree. A left edge is a 0 and 
+a right edge is a 1. The edge path to a certain letter, creates the binary representation. (i.e left edge->right edge->left edge = 010). The more frequent the 
+letter is in the file, the distance from the root is less. Therefore in compression, more frequent letters take less binary digits to encode. Overall the number 
+of binary digits is less then the regular encoding.
+
+This is lossless because no information about letters is lost, but rather represented differently. Therefore ascii "a" could be represented as 1100001 , but using
+huffman bst "a" can be represented as 010. They represent the same exact information.
+
+2.) How did you calc the compression-ratio? What length did you calculate block code?
+
+The compression ratio was calculated using (number of bits of a file using Huffman encoding) / (number of bits of a file using Blockcode encoding).
+
+To get the Huffman encoding size: Using the Huffman BST, find how many bits each word is. For the file, add together the bit size of everyword.
+
+To get the Block Code encoding size: Find the number of words in the keyword list (all unique words from all the files). To get a code word length use 
+log(number of words)/logbase2 to get the number of bits needed to encode the number of words. For the file, multiple the number  of bits per word by the number
+of words in the file.
+
+3.)
+
+4.) Pick one of the codes that you produced. For that code, what is the length of the shortest code word? the longest? 
+Does the number of documents used to construct the code affect these numbers?
+ 
+Choose old300. The code words are all the same length.  The number of documents to construct the dictionary for the code increases or decreases the
+number of words, therefore decreases or increases the word length because more words means more bits are needed to represent a word. The number of documents
+for the subset and frequency of the dictionary does not change the word length. It increases the frequency of certain words, but does not increase or decrease
+the number of words in the dictionary.
+
+5.)For the code constructed from all of the speeches, find the ten speeches with the worst compression ratio and the ten speeches with the best compression ratio. 
+Can you explain why their compression ratio is good or bad?
+
+The good compressions: Most of these are the oldest speeches. They have better compressions because the speech contains more of the simple commonly used words.
+
+The bad compressions: Mostly modern speeches. They have bad compression because they use uncommon words.

@@ -31,7 +31,7 @@ public class BSTHuff <E extends Comparable<E>>{
 		
 		if(curRoot.getKey().equals(key)){
 			found = true;
-			return 1;
+			return 0;
 		}
 		
 		//Recursion
