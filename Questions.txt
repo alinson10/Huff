@@ -22,7 +22,13 @@ To get the Block Code encoding size: Find the number of words in the keyword lis
 log(number of words)/logbase2 to get the number of bits needed to encode the number of words. For the file, multiple the number  of bits per word by the number
 of words in the file.
 
-3.)
+3.) What happens to the minimum, maximum, and average compression ratios when you increase the number of documents included in the set from which you
+ build the code? Why?
+ 
+ The minimum gets smaller, the maximum gets smaller, and average gets smaller. This happens because there is more content to discover
+ which words are more frequent. Therefore if the more common words get increased frequency, then it will be closer to the root
+ in the Huffman BST: Decreasing the bit size of a certain word and overall decreasing the size of the encoding and compression
+ ratio.
 
 4.) Pick one of the codes that you produced. For that code, what is the length of the shortest code word? the longest? 
 Does the number of documents used to construct the code affect these numbers?
@@ -38,3 +44,17 @@ Can you explain why their compression ratio is good or bad?
 The good compressions: Most of these are the oldest speeches. They have better compressions because the speech contains more of the simple commonly used words.
 
 The bad compressions: Mostly modern speeches. They have bad compression because they use uncommon words.
+
+
+6.) What does it mean for Huffman codes to be prefix codes? How would you decode a document encoded using a Huffman code?
+
+Huffman codes are prefix codes because they are unique codes representing certain words.
+The method of decoding Huffman:  The bit coding for a certain word is calculated by finding the path of a word in the huffmanBST 
+and storing it in a hashtable where the key is the word. When it comes to decoding Huffman, simply search through the hashtable
+for the specific bit sequence, and the key is the word that is decoded.
+
+7.) If you worked as a team, what did each of the team members contribute?
+Andrew Linson: Questions, Run the tests/Spreadsheet, created Huffman.java (Main class), created huffComparator.java
+Gooi Liang Zheng:  Questions, Run the tests/Spreadsheet, created HuffNode.java, created BSTHuff.java, created Word.java
+
+
