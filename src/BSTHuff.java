@@ -30,7 +30,6 @@ public class BSTHuff <E extends Comparable<E>>{
 		}
 		
 		if(curRoot.getKey().equals(key)){
-			System.out.println("FOUND");
 			found = true;
 			return 1;
 		}
